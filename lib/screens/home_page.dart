@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:makeny/extentions/colors.dart';
 import 'package:makeny/models/doctor_model.dart';
+import 'package:makeny/screens/user_pages/account_page.dart';
 import 'package:makeny/widgets/custom_page_view.dart';
 import 'package:makeny/widgets/doctor_container.dart';
 
@@ -163,6 +165,11 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+            IconButton(
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => AccountPage(),
+                    )),
+                icon: Icon(Icons.abc))
           ],
         ),
       ),
