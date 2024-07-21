@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:makeny/extentions/colors.dart';
+import 'package:makeny/screens/user_pages/about_makeny_screen.dart';
+import 'package:makeny/screens/user_pages/profile_page.dart';
+import 'package:makeny/test.dart';
 import 'package:makeny/widgets/text_icon_navigator.dart';
 
 class AccountPage extends StatelessWidget {
@@ -80,22 +83,66 @@ class AccountPage extends StatelessWidget {
                 )
               ],
             ),
-            textIconNavigator(
-                icon: "assets/icons/user.svg",
-                text: "الملف الشخصي",
-                onTap: () {}),
-            textIconNavigator(
-                icon: "assets/icons/files-medical 1.svg",
-                text: "ملفي الطبي",
-                onTap: () {}),
-            textIconNavigator(
-                icon: "assets/icons/Medical-Education.svg",
-                text: "النثقيف الطبي",
-                onTap: () {}),
-            textIconNavigator(
-                icon: "assets/icons/ser.svg", text: "خدماتنا", onTap: () {}),
-            textIconNavigator(
-                icon: "assets/makany.svg", text: "عن مكني", onTap: () {}),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 15,
+              ),
+              child: Column(
+                children: [
+                  textIconNavigator(
+                      icon: "assets/icons/user.svg",
+                      text: "الملف الشخصي",
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ProfilePage()));
+                      }),
+                  textIconNavigator(
+                      icon: "assets/icons/files-medical 1.svg",
+                      text: "ملفي الطبي",
+                      onTap: () {}),
+                  textIconNavigator(
+                      icon: "assets/icons/Medical-Education.svg",
+                      text: "النثقيف الطبي",
+                      onTap: () {}),
+                  textIconNavigator(
+                      icon: "assets/icons/ser.svg",
+                      text: "خدماتنا",
+                      onTap: () {}),
+                  textIconNavigator(
+                      icon: "assets/makany.svg",
+                      text: "عن مكني",
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AboutMakenyScreen(),
+                            ));
+                      }),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Text(
+                      "الإعدادات",
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xffA2A2A2A2)),
+                    ),
+                  ),
+                  textIconNavigator(
+                      icon: "assets/icons/lan.svg",
+                      text: "اللغة",
+                      subText: "Change to english",
+                      onTap: () {}),
+                  textIconNavigator(
+                      icon: "assets/icons/logout.svg",
+                      text: "تسجيل الخروج ",
+                      showIcon: false,
+                      onTap: () {}),
+                ],
+              ),
+            )
           ],
         ),
       ),
